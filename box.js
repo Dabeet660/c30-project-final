@@ -26,7 +26,7 @@ class Box{
             push();
             this.tintfunc = this.tintfunc - 5;
             tint(255,this.tintfunc);
-            rectangle(this.image,pos.x,pos.y,this.width,this.height);
+            rect(tpos.x,pos.y,this.width,this.height);
             pop();
         }
        
