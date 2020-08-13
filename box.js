@@ -5,15 +5,30 @@ class Box{
             'friction':1.0,
             'density':1.0
         }
+        this.tintfunc = 255
         this.body = Bodies.rectangle(x,y,width,height,options);
         this.width = width;
         this.height = height;
         World.add(world, this.body);
     }
     display(){
-        var pos = this.body.position;
-        rectMode(CENTER);
-        rect(pos.x,pos.y,this.width,this.height);
+        if(this.body.speed < 3){
+            var pos = this.body.position;
+            rectMode(CENTER);
+            push();
+            fill(146, 249, 2);
+            strokeWeight(5);
+            rect(pos.x,pos.y,this.width,this.height);
+            pop();    
+           
+        } else { 
+            World.remove(world,this.body);
+            push();
+            this.tintfunc = this.tintfunc - 5;
+            tint(255,this.tintfunc);
+            rectangle(this.image,pos.x,pos.y,this.width,this.height);
+            pop();
+        }
        
     }
 }

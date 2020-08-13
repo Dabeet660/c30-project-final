@@ -9,7 +9,7 @@ var box16,box17,box18,box19,box20,box21,box22,box23,box24,box25,box26,box27,box2
 var player;
 var slingShot;
 
-function setup() {
+function setup(){
 var canvas = createCanvas(800,700);
 engine = Engine.create();
 world = engine.world;
@@ -98,6 +98,8 @@ function draw() {
 
   player.display();
 
+  text("Drag the stone and release it, to launch it towards the block",100,100);
+  text("Press space to get one more chance!",120,120);
   drawSprites();
 }
 
@@ -107,4 +109,10 @@ function mouseDragged(){
 
 function mouseReleased(){
    slingShot.fly();
+}
+
+function keyPressed(){
+  if(keyCode === 32){
+   slingShot.attach(player.body);
+  }
 }
