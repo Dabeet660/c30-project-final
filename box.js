@@ -23,10 +23,11 @@ class Box{
            
         } else { 
             World.remove(world,this.body);
+            var pos = this.body.position;
             push();
             this.tintfunc = this.tintfunc - 5;
             tint(255,this.tintfunc);
-            rect(tpos.x,pos.y,this.width,this.height);
+            rect(pos.x,pos.y,this.width,this.height);
             pop();
         }
        
